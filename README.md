@@ -6,3 +6,16 @@ For each example robot, the SDF was generated from the URDF using the `gz` comma
     $ gz sdf -p [URDF file] > [SDF file]
 
 `gz` is a tool that comes with Gazebo 3.0 and above.
+
+# How to Load Models Into Gazebo #
+
+Add this repository to the `GAZEBO_MODEL_PATH` environment variable.
+
+    $ cd [path to this repository]
+    $ export GAZEBO_MODEL_PATH=`pwd`
+
+Launch Gazebo:
+
+    $ gazebo
+
+On the left panel, switch to tab "Insert". Left-click on the robot you want to insert. The robot should appear in the Gazebo simulator.

@@ -1,0 +1,2361 @@
+<sdf version='1.5'>
+  <model name='dreamer'>
+    <link name='panplate_link'>
+      <pose>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0.8 0 -0 0</pose>
+        <mass>8</mass>
+        <inertia>
+          <ixx>0.8</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.8</iyy>
+          <iyz>0</iyz>
+          <izz>0.8</izz>
+        </inertia>
+      </inertial>
+      <collision name='panplate_link_collision'>
+        <pose>0 0 0.8 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/T2R3/T2R3_TJ0_base.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='panplate_link_visual'>
+        <pose>0 0 0.8 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/T2R3/T2R3_TJ0_base.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='torso_yaw_link'>
+      <pose>0 0 0.9678 0 -0 0</pose>
+      <inertial>
+        <pose>0.00011774 0.0038073 -0.0522753 0 -0 0</pose>
+        <mass>4.411</mass>
+        <inertia>
+          <ixx>0.02636</ixx>
+          <ixy>-2.4e-06</ixy>
+          <ixz>-5.08e-05</ixz>
+          <iyy>0.0134266</iyy>
+          <iyz>0.0006839</iyz>
+          <izz>0.0229879</izz>
+        </inertia>
+      </inertial>
+      <collision name='torso_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/T2R3/T2R3_TJ1_pan.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='torso_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/T2R3/T2R3_TJ1_pan.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='torso_yaw' type='revolute'>
+      <child>torso_yaw_link</child>
+      <parent>panplate_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+          <effort>100</effort>
+          <velocity>0.436332</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='torso_lower_pitch_link'>
+      <pose>0 0 0.9678 0 -0 0</pose>
+      <inertial>
+        <pose>0.001179 -0.002993 0.046259 0 -0 0</pose>
+        <mass>4.934</mass>
+        <inertia>
+          <ixx>0.041106</ixx>
+          <ixy>0.000135</ixy>
+          <ixz>0.000505</ixz>
+          <iyy>0.026009</iyy>
+          <iyz>0.002396</iyz>
+          <izz>0.025902</izz>
+        </inertia>
+      </inertial>
+      <collision name='torso_lower_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/T2R3/T2R3_TJ2.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='torso_lower_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/T2R3/T2R3_TJ2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='torso_lower_pitch' type='revolute'>
+      <child>torso_lower_pitch_link</child>
+      <parent>torso_yaw_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.366519</lower>
+          <upper>0.872665</upper>
+          <effort>200</effort>
+          <velocity>0.174533</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='torso_upper_pitch_link'>
+      <pose>0 0 1.1075 0 -0 0</pose>
+      <inertial>
+        <pose>0.0087 0.01147 0.12974 0 -0 0</pose>
+        <mass>6.534</mass>
+        <inertia>
+          <ixx>0.06976</ixx>
+          <ixy>-0.0004</ixy>
+          <ixz>0.0013</ixz>
+          <iyy>0.04801</iyy>
+          <iyz>0.0051</iyz>
+          <izz>0.04059</izz>
+        </inertia>
+      </inertial>
+      <collision name='torso_upper_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/T2R3/T2R3_TJ3_chest_waist_neck.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='torso_upper_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/T2R3/T2R3_TJ3_chest_waist_neck.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='torso_upper_pitch' type='revolute'>
+      <child>torso_upper_pitch_link</child>
+      <parent>torso_lower_pitch_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.366519</lower>
+          <upper>0.872665</upper>
+          <effort>200</effort>
+          <velocity>0.174533</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_shoulder_extensor_link'>
+      <pose>0 0.18465 1.3412 0 -0 0</pose>
+      <inertial>
+        <pose>-0.010946 -0.025127 2.2e-05 0 -0 0</pose>
+        <mass>2.031</mass>
+        <inertia>
+          <ixx>0.003461</ixx>
+          <ixy>0.000428</ixy>
+          <ixz>2e-06</ixz>
+          <iyy>0.003097</iyy>
+          <iyz>0</iyz>
+          <izz>0.005416</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_shoulder_extensor_link_collision'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT1_shoulderRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_shoulder_extensor_link_visual'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT1_shoulderRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_shoulder_extensor' type='revolute'>
+      <child>left_shoulder_extensor_link</child>
+      <parent>torso_upper_pitch_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.39626</lower>
+          <upper>3.49066</upper>
+          <effort>40</effort>
+          <velocity>0.523599</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_shoulder_abductor_link'>
+      <pose>0 0.18465 1.3412 0 -0 -3.14159</pose>
+      <inertial>
+        <pose>-0.000944 -0.026331 -0.043257 0 -0 0</pose>
+        <mass>0.566</mass>
+        <inertia>
+          <ixx>0.000754</ixx>
+          <ixy>1.5e-05</ixy>
+          <ixz>1.4e-05</ixz>
+          <iyy>0.000921</iyy>
+          <iyz>0.000142</iyz>
+          <izz>0.000834</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_shoulder_abductor_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT2_shoulderPitch.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_shoulder_abductor_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT2_shoulderPitch.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_shoulder_abductor' type='revolute'>
+      <child>left_shoulder_abductor_link</child>
+      <parent>left_shoulder_extensor_link</parent>
+      <axis>
+        <xyz>1 2.06823e-13 0</xyz>
+        <limit>
+          <lower>-0.418879</lower>
+          <upper>2.61799</upper>
+          <effort>40</effort>
+          <velocity>0.523599</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_shoulder_rotator_link'>
+      <pose>-6.56663e-15 0.2164 1.06263 0 -0 4.13646e-13</pose>
+      <inertial>
+        <pose>-0.005767 0.084539 0.001385 0 -0 0</pose>
+        <mass>2.296</mass>
+        <inertia>
+          <ixx>0.013031</ixx>
+          <ixy>-0.000564</ixy>
+          <ixz>-7.7e-05</ixz>
+          <iyy>0.00207</iyy>
+          <iyz>0.000162</iyz>
+          <izz>0.013173</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_shoulder_rotator_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT3_bicep.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_shoulder_rotator_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT3_bicep.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_shoulder_rotator' type='revolute'>
+      <child>left_shoulder_rotator_link</child>
+      <parent>left_shoulder_abductor_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.48353</lower>
+          <upper>1.48353</upper>
+          <effort>20</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_elbow_link'>
+      <pose>0.00502 0.2164 1.06263 0 0 -3.14159</pose>
+      <inertial>
+        <pose>2e-06 -0.000278 -0.026124 0 -0 0</pose>
+        <mass>0.223</mass>
+        <inertia>
+          <ixx>0.00047</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000233</iyy>
+          <iyz>1.9e-05</iyz>
+          <izz>0.000425</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_elbow_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT4_elbow.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_elbow_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT4_elbow.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_elbow' type='revolute'>
+      <child>left_elbow_link</child>
+      <parent>left_shoulder_rotator_link</parent>
+      <axis>
+        <xyz>6.20469e-13 -1 0</xyz>
+        <limit>
+          <lower>-0.00486908</lower>
+          <upper>2.3181</upper>
+          <effort>20</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_wrist_rotator_link'>
+      <pose>0.00502 0.2164 0.78516 0 -0 8.27292e-13</pose>
+      <inertial>
+        <pose>-0.004404 0.000124 0.130931 0 -0 0</pose>
+        <mass>1.468</mass>
+        <inertia>
+          <ixx>0.006099</ixx>
+          <ixy>4e-06</ixy>
+          <ixz>-4.3e-05</ixz>
+          <iyy>0.00612</iyy>
+          <iyz>1.5e-05</iyz>
+          <izz>0.001179</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wrist_rotator_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_T5_forearmRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_wrist_rotator_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T5_forearmRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_wrist_rotator' type='revolute'>
+      <child>left_wrist_rotator_link</child>
+      <parent>left_elbow_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.862193</lower>
+          <upper>4.00379</upper>
+          <effort>4</effort>
+          <velocity>2.61799</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_wrist_pitch_link'>
+      <pose>0.00502 0.2164 0.78516 0 -0 8.27292e-13</pose>
+      <inertial>
+        <pose>8e-05 0.00163 0.00123 0 -0 0</pose>
+        <mass>0.278</mass>
+        <inertia>
+          <ixx>0.00013</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00014</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wrist_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='left_wrist_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T6_wristDiff.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_wrist_pitch' type='revolute'>
+      <child>left_wrist_pitch_link</child>
+      <parent>left_wrist_rotator_link</parent>
+      <axis>
+        <xyz>8.27292e-13 -1 0</xyz>
+        <limit>
+          <lower>-1.02678</lower>
+          <upper>1.02678</upper>
+          <effort>8</effort>
+          <velocity>0.698132</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_wrist_yaw_link'>
+      <pose>0.00502 0.2164 0.78516 0 -0 8.27292e-13</pose>
+      <inertial>
+        <pose>0.000106073 0.000738822 -0.071697 0 -0 0</pose>
+        <mass>0.67407</mass>
+        <inertia>
+          <ixx>0.00698643</ixx>
+          <ixy>-8.99497e-07</ixy>
+          <ixz>-1.11207e-05</ixz>
+          <iyy>0.00721653</iyy>
+          <iyz>-1.04888e-05</iyz>
+          <izz>0.0028118</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_wrist_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_T7_wristYaw.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='left_wrist_yaw_link_collision_left_wrist_yaw_link_1'>
+        <pose>0 0 0 1.57 1.57 1.39418e-13</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/gripper_palm.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='left_wrist_yaw_link_collision_left_wrist_yaw_link_2'>
+        <pose>0 0 0 1.57 1.57 1.39418e-13</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='left_wrist_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T7_wristYaw.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='left_wrist_yaw_link_visual_left_wrist_yaw_link_1'>
+        <pose>0 0 0 1.57 1.57 1.39418e-13</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/gripper_palm.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='left_wrist_yaw_link_visual_left_wrist_yaw_link_2'>
+        <pose>0 0 0 1.57 1.57 1.39418e-13</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_wrist_yaw' type='revolute'>
+      <child>left_wrist_yaw_link</child>
+      <parent>left_wrist_pitch_link</parent>
+      <axis>
+        <xyz>1 8.27292e-13 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>1.0472</upper>
+          <effort>8</effort>
+          <velocity>0.698132</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_gripper_l_finger_link'>
+      <pose>0.0150812 0.216408 0.708258 1.57 1.57 1.04564e-12</pose>
+      <inertial>
+        <pose>0.03598 0.0173 -0.00164 0 -0 0</pose>
+        <mass>0.17126</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_gripper_l_finger_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_gripper_l_finger_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_gripper_l_finger_joint' type='revolute'>
+      <child>l_gripper_l_finger_link</child>
+      <parent>left_wrist_yaw_link</parent>
+      <axis>
+        <xyz>0.000796326 -1 6.34136e-07</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.548</upper>
+          <effort>1000</effort>
+          <velocity>0.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_gripper_l_finger_tip_link'>
+      <pose>0.020104 0.216412 0.616892 1.57 1.57 1.04564e-12</pose>
+      <inertial>
+        <pose>0.00423 0.00284 0 0 -0 0</pose>
+        <mass>0.04419</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_gripper_l_finger_tip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger_tip.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_gripper_l_finger_tip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger_tip.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_gripper_l_finger_tip_joint' type='revolute'>
+      <child>l_gripper_l_finger_tip_link</child>
+      <parent>l_gripper_l_finger_link</parent>
+      <axis>
+        <xyz>-0.000796326 1 -6.34136e-07</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.548</upper>
+          <effort>1000</effort>
+          <velocity>0.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_gripper_r_finger_link'>
+      <pose>-0.00491875 0.216392 0.708242 1.57 1.57 1.04564e-12</pose>
+      <inertial>
+        <pose>0.03576 -0.01736 -0.00095 0 -0 0</pose>
+        <mass>0.17389</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_gripper_r_finger_link_collision'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_gripper_r_finger_link_visual'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_gripper_r_finger_joint' type='revolute'>
+      <child>l_gripper_r_finger_link</child>
+      <parent>left_wrist_yaw_link</parent>
+      <axis>
+        <xyz>-0.000796326 1 -6.34136e-07</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.548</upper>
+          <effort>1000</effort>
+          <velocity>0.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='l_gripper_r_finger_tip_link'>
+      <pose>-0.00979598 0.216388 0.616868 1.57 1.57 1.04564e-12</pose>
+      <inertial>
+        <pose>0.00423 -0.00284 0 0 -0 0</pose>
+        <mass>0.04419</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name='l_gripper_r_finger_tip_link_collision'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger_tip.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='l_gripper_r_finger_tip_link_visual'>
+        <pose>0 0 0 -3.14159 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/gripper_v0/l_finger_tip.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='l_gripper_r_finger_tip_joint' type='revolute'>
+      <child>l_gripper_r_finger_tip_link</child>
+      <parent>l_gripper_r_finger_link</parent>
+      <axis>
+        <xyz>0.000796326 -1 6.34136e-07</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0.548</upper>
+          <effort>1000</effort>
+          <velocity>0.5</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='lower_neck_pitch_link'>
+      <pose>0 0 1.41905 0 -0 0</pose>
+      <inertial>
+        <pose>6.1e-05 0.00331 0.028798 0 -0 0</pose>
+        <mass>0.94</mass>
+        <inertia>
+          <ixx>0.001395</ixx>
+          <ixy>-0</ixy>
+          <ixz>-0</ixz>
+          <iyy>0.001345</iyy>
+          <iyz>-8.5e-05</iyz>
+          <izz>0.000392</izz>
+        </inertia>
+      </inertial>
+      <collision name='lower_neck_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/S2R1/S2R1_SH1_neckTilt.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='lower_neck_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_SH1_neckTilt.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='lower_neck_pitch' type='revolute'>
+      <child>lower_neck_pitch_link</child>
+      <parent>torso_upper_pitch_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.698132</lower>
+          <upper>0.261799</upper>
+          <effort>100</effort>
+          <velocity>0.349066</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='upper_neck_yaw_link'>
+      <pose>0 0 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.409</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='upper_neck_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='upper_neck_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_SH2_neckRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='upper_neck_yaw' type='revolute'>
+      <child>upper_neck_yaw_link</child>
+      <parent>lower_neck_pitch_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.4123</lower>
+          <upper>1.41215</upper>
+          <effort>100</effort>
+          <velocity>1.309</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='upper_neck_roll_link'>
+      <pose>0 0 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>-0.01069 0.053982 4.5e-05 0 -0 0</pose>
+        <mass>0.496</mass>
+        <inertia>
+          <ixx>0.001094</ixx>
+          <ixy>0.000284</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000311</iyy>
+          <iyz>0</iyz>
+          <izz>0.001222</izz>
+        </inertia>
+      </inertial>
+      <collision name='upper_neck_roll_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='upper_neck_roll_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_H3_neckYaw.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='upper_neck_roll' type='revolute'>
+      <child>upper_neck_roll_link</child>
+      <parent>upper_neck_yaw_link</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.260752</lower>
+          <upper>0.260752</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='upper_neck_pitch_link'>
+      <pose>0 0 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>0.034944 0.000563 0.058668 0 -0 0</pose>
+        <mass>3.178</mass>
+        <inertia>
+          <ixx>0.022924</ixx>
+          <ixy>-3.4e-05</ixy>
+          <ixz>-0.002929</ixz>
+          <iyy>0.021814</iyy>
+          <iyz>-0.000235</iyz>
+          <izz>0.026783</izz>
+        </inertia>
+      </inertial>
+      <collision name='upper_neck_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/S2R1/S2R1_H4_UTA_head.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='upper_neck_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_H4_UTA_head.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='upper_neck_pitch' type='revolute'>
+      <child>upper_neck_pitch_link</child>
+      <parent>upper_neck_roll_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.12343</lower>
+          <upper>0.647028</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='eye_pitch_link'>
+      <pose>0.12508 0 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='eye_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='eye_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_SH5_eyeTilt.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='eye_pitch' type='revolute'>
+      <child>eye_pitch_link</child>
+      <parent>upper_neck_pitch_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.610691</lower>
+          <upper>0.610691</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='left_eye_yaw_link'>
+      <pose>0.12508 0.053 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='left_eye_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/S2R1/S2R1_eye.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='left_eye_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_eye.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='left_eye_yaw' type='revolute'>
+      <child>left_eye_yaw_link</child>
+      <parent>eye_pitch_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.61296</lower>
+          <upper>0.613047</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_eye_yaw_link'>
+      <pose>0.12508 -0.053 1.55754 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>1e-05</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_eye_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/S2R1/S2R1_eye.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_eye_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/S2R1/S2R1_eye.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_eye_yaw' type='revolute'>
+      <child>right_eye_yaw_link</child>
+      <parent>eye_pitch_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.597077</lower>
+          <upper>0.597129</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_shoulder_extensor_link'>
+      <pose>0 -0.18465 1.3412 0 -0 0</pose>
+      <inertial>
+        <pose>-0.010946 0.025127 2.2e-05 0 -0 0</pose>
+        <mass>2.031</mass>
+        <inertia>
+          <ixx>0.003461</ixx>
+          <ixy>0.000428</ixy>
+          <ixz>2e-06</ixz>
+          <iyy>0.003097</iyy>
+          <iyz>0</iyz>
+          <izz>0.005416</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_shoulder_extensor_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT1_shoulderRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_shoulder_extensor_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT1_shoulderRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_shoulder_extensor' type='revolute'>
+      <child>right_shoulder_extensor_link</child>
+      <parent>torso_upper_pitch_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.39626</lower>
+          <upper>3.49066</upper>
+          <effort>40</effort>
+          <velocity>0.523599</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_shoulder_abductor_link'>
+      <pose>0 -0.18465 1.3412 0 -0 0</pose>
+      <inertial>
+        <pose>0.000944 -0.026331 -0.043257 0 -0 0</pose>
+        <mass>0.566</mass>
+        <inertia>
+          <ixx>0.000754</ixx>
+          <ixy>1.5e-05</ixy>
+          <ixz>1.4e-05</ixz>
+          <iyy>0.000921</iyy>
+          <iyz>0.000142</iyz>
+          <izz>0.000834</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_shoulder_abductor_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT2_shoulderPitch.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_shoulder_abductor_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT2_shoulderPitch.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_shoulder_abductor' type='revolute'>
+      <child>right_shoulder_abductor_link</child>
+      <parent>right_shoulder_extensor_link</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-0.418879</lower>
+          <upper>2.61799</upper>
+          <effort>40</effort>
+          <velocity>0.523599</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_shoulder_rotator_link'>
+      <pose>0 -0.2164 1.06263 0 -0 0</pose>
+      <inertial>
+        <pose>-0.005767 0.084539 0.001385 0 -0 0</pose>
+        <mass>2.296</mass>
+        <inertia>
+          <ixx>0.013031</ixx>
+          <ixy>-0.000564</ixy>
+          <ixz>-7.7e-05</ixz>
+          <iyy>0.00207</iyy>
+          <iyz>0.000162</iyz>
+          <izz>0.013173</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_shoulder_rotator_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT3_bicep.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_shoulder_rotator_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT3_bicep.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_shoulder_rotator' type='revolute'>
+      <child>right_shoulder_rotator_link</child>
+      <parent>right_shoulder_abductor_link</parent>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1.48353</lower>
+          <upper>1.48353</upper>
+          <effort>20</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_elbow_link'>
+      <pose>0.00502 -0.2164 1.06263 0 -0 0</pose>
+      <inertial>
+        <pose>-2e-06 0.000278 -0.026124 0 -0 0</pose>
+        <mass>0.223</mass>
+        <inertia>
+          <ixx>0.00047</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000233</iyy>
+          <iyz>1.9e-05</iyz>
+          <izz>0.000425</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_elbow_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_RT4_elbow.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_elbow_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_RT4_elbow.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_elbow' type='revolute'>
+      <child>right_elbow_link</child>
+      <parent>right_shoulder_rotator_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.00486908</lower>
+          <upper>2.3181</upper>
+          <effort>20</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_wrist_rotator_link'>
+      <pose>0.00502 -0.2164 0.78516 0 -0 0</pose>
+      <inertial>
+        <pose>-0.004404 0.000124 0.130931 0 -0 0</pose>
+        <mass>1.468</mass>
+        <inertia>
+          <ixx>0.006099</ixx>
+          <ixy>4e-06</ixy>
+          <ixz>-4.3e-05</ixz>
+          <iyy>0.00612</iyy>
+          <iyz>1.5e-05</iyz>
+          <izz>0.001179</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wrist_rotator_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_T5_forearmRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_wrist_rotator_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T5_forearmRoll.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_wrist_rotator' type='revolute'>
+      <child>right_wrist_rotator_link</child>
+      <parent>right_elbow_link</parent>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.862193</lower>
+          <upper>4.00379</upper>
+          <effort>4</effort>
+          <velocity>2.61799</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_wrist_pitch_link'>
+      <pose>0.00502 -0.2164 0.78516 0 -0 0</pose>
+      <inertial>
+        <pose>8e-05 0.00163 0.00123 0 -0 0</pose>
+        <mass>0.278</mass>
+        <inertia>
+          <ixx>0.00013</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00014</iyy>
+          <iyz>0</iyz>
+          <izz>0.0009</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wrist_pitch_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 0.01 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='right_wrist_pitch_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T6_wristDiff.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='right_wrist_pitch' type='revolute'>
+      <child>right_wrist_pitch_link</child>
+      <parent>right_wrist_rotator_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.02678</lower>
+          <upper>1.02678</upper>
+          <effort>8</effort>
+          <velocity>0.698132</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_wrist_yaw_link'>
+      <pose>0.00502 -0.2164 0.78516 0 -0 0</pose>
+      <inertial>
+        <pose>0.00087365 0.00111903 -0.0969588 0 -0 0</pose>
+        <mass>0.6862</mass>
+        <inertia>
+          <ixx>0.00573403</ixx>
+          <ixy>2.97191e-05</ixy>
+          <ixz>-1.18605e-05</ixz>
+          <iyy>0.00568844</iyy>
+          <iyz>1.27026e-05</iyz>
+          <izz>0.00137759</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_wrist_yaw_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/A2R3/A2R3_T7_wristYaw.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='right_wrist_yaw_link_collision_right_wrist_yaw_link_1'>
+        <pose>0 0 -0.04414 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_RT8_palm_right.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='right_wrist_yaw_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/A2R3/A2R3_T7_wristYaw.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='right_wrist_yaw_link_visual_right_wrist_yaw_link_1'>
+        <pose>0 0 -0.04414 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_RT8_palm_right.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_wrist_yaw' type='revolute'>
+      <child>right_wrist_yaw_link</child>
+      <parent>right_wrist_pitch_link</parent>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>-1.0472</lower>
+          <upper>1.0472</upper>
+          <effort>8</effort>
+          <velocity>0.698132</velocity>
+        </limit>
+        <dynamics>
+          <damping>1</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_middle_finger_mcp_link'>
+      <pose>0.00502 -0.2164 0.64002 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_middle_finger_mcp_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_middle_finger_mcp_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_middle_finger_mcp' type='revolute'>
+      <child>right_middle_finger_mcp_link</child>
+      <parent>right_wrist_yaw_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.12343</lower>
+          <upper>0.647028</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_middle_finger_pip_link'>
+      <pose>0.00502 -0.2164 0.59602 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0429</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_middle_finger_pip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_middle_finger_pip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_middle_finger_pip' type='revolute'>
+      <child>right_middle_finger_pip_link</child>
+      <parent>right_middle_finger_mcp_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.610691</lower>
+          <upper>0.610691</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_middle_finger_dip_link'>
+      <pose>0.00502 -0.2164 0.56402 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_middle_finger_dip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_middle_finger_dip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_middle_finger_dip' type='revolute'>
+      <child>right_middle_finger_dip_link</child>
+      <parent>right_middle_finger_pip_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.597077</lower>
+          <upper>0.597129</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_pinky_mcp'>
+      <pose>0.00502 -0.2444 0.64002 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pinky_mcp_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pinky_mcp_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pinky_mcp' type='revolute'>
+      <child>right_pinky_mcp</child>
+      <parent>right_wrist_yaw_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.12343</lower>
+          <upper>0.647028</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='right_pinky_pip'>
+      <pose>0.00502 -0.2444 0.59602 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0429</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pinky_pip_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pinky_pip_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pinky_pip' type='revolute'>
+      <child>right_pinky_pip</child>
+      <parent>right_pinky_mcp</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.610691</lower>
+          <upper>0.610691</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='right_pinky_dip_link'>
+      <pose>0.00502 -0.2444 0.56402 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pinky_dip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pinky_dip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pinky_dip' type='revolute'>
+      <child>right_pinky_dip_link</child>
+      <parent>right_pinky_pip</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.597077</lower>
+          <upper>0.597129</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_pointer_finger_mcp_link'>
+      <pose>0.00502 -0.1884 0.64002 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pointer_finger_mcp_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pointer_finger_mcp_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pointer_finger_mcp' type='revolute'>
+      <child>right_pointer_finger_mcp_link</child>
+      <parent>right_wrist_yaw_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.12343</lower>
+          <upper>0.647028</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_pointer_finger_pip'>
+      <pose>0.00502 -0.1884 0.59602 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0429</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pointer_finger_pip_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pointer_finger_pip_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pointer_finger_pip' type='revolute'>
+      <child>right_pointer_finger_pip</child>
+      <parent>right_pointer_finger_mcp_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.610691</lower>
+          <upper>0.610691</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <limit>
+            <cfm>0</cfm>
+            <erp>0.2</erp>
+          </limit>
+        </ode>
+      </physics>
+    </joint>
+    <link name='right_pointer_finger_dip_link'>
+      <pose>0.00502 -0.1884 0.56402 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_pointer_finger_dip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_pointer_finger_dip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_finger_knuckle3.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_pointer_finger_dip' type='revolute'>
+      <child>right_pointer_finger_dip_link</child>
+      <parent>right_pointer_finger_pip</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.597077</lower>
+          <upper>0.597129</upper>
+          <effort>100</effort>
+          <velocity>27.9253</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_thumb_cmc_link'>
+      <pose>-0.01498 -0.1884 0.71102 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0117</mass>
+        <inertia>
+          <ixx>1.44698e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.29292e-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.47774e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_thumb_cmc_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_RJ0_thumb_abductlink.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_thumb_cmc_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_RJ0_thumb_abductlink.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_thumb_cmc' type='revolute'>
+      <child>right_thumb_cmc_link</child>
+      <parent>right_wrist_yaw_link</parent>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-0.698132</lower>
+          <upper>1.5708</upper>
+          <effort>100</effort>
+          <velocity>0.349066</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_thumb_mcp_link'>
+      <pose>-0.03298 -0.1884 0.71102 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.0344</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_thumb_mcp_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_thumb_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_thumb_mcp_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_thumb_knuckle1.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_thumb_mcp' type='revolute'>
+      <child>right_thumb_mcp_link</child>
+      <parent>right_thumb_cmc_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-1.4123</lower>
+          <upper>1.41215</upper>
+          <effort>100</effort>
+          <velocity>1.309</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='right_thumb_ip_link'>
+      <pose>-0.07698 -0.1884 0.71102 0 -0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 -0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00111</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00111</iyy>
+          <iyz>0</iyz>
+          <izz>0.00111</izz>
+        </inertia>
+      </inertial>
+      <collision name='right_thumb_ip_link_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/low_res/H2R3/H2R3_thumb_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode>
+              <mu>1</mu>
+              <mu2>1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='right_thumb_ip_link_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://dreamer/meka_description/meshes/optimized/H2R3/H2R3_thumb_knuckle2.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <gravity>1</gravity>
+      <velocity_decay/>
+      <self_collide>0</self_collide>
+    </link>
+    <joint name='right_thumb_ip' type='revolute'>
+      <child>right_thumb_ip_link</child>
+      <parent>right_thumb_mcp_link</parent>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>
+          <lower>-0.260752</lower>
+          <upper>0.260752</upper>
+          <effort>100</effort>
+          <velocity>0.872665</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>
