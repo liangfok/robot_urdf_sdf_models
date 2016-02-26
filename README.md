@@ -5,7 +5,7 @@ For each example robot, the SDF was generated from the URDF using the `gz` comma
 
     $ gz sdf -p [URDF file] > [SDF file]
 
-`gz` is a tool that comes with Gazebo 3.0 and above.
+`gz` is a tool that comes with [Gazebo](http://gazebosim.org/) 3.0 and above.
 
 # How to Load Models Into Gazebo #
 
