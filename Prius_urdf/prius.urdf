@@ -69,10 +69,10 @@
     </visual>
   </link>
   
-  <!-- <link name="right_tie_rod_arm">
+  <link name="right_tie_rod_arm">
     <inertial>
       <mass value="1.58382895" />
-      <inertia iyy="0.01392609" iyx="-0.00888406" ixy="-0.00888406" ixx="0.00760563" izz="0.02127934" />
+      <inertia iyy="0.01392609" iyx="-0.00888406" ixy="-0.00888406" ixx="0.00760563" izz="0.02127934" ixz="0" iyz="0"/>
     </inertial>
     <visual>
       <origin xyz="0.172468672 -0.108519747 0.299279" rpy="0 0 0" />
@@ -92,7 +92,7 @@
         <color rgba="0 .5 0 1" />
       </material>
     </visual>  
-  </link> -->
+  </link>
   
   <link name="tie_rod">
     <inertial>
@@ -451,7 +451,7 @@
     <child link="left_tie_rod_arm" />
     <origin xyz="0 0.494736842 0" />
     <axis xyz="0 0 1" />
-    <limit effort="100" lower="-0.401425728" upper="0.5" velocity="1"/>
+    <limit effort="100" lower="-0.401425728" upper="0.5" velocity="100"/>
   </joint>
   
   <joint name="left_pin" type="continuous">
@@ -459,16 +459,16 @@
     <child link="tie_rod" />
     <origin xyz="-0.172468672 -0.086234287 0" />
     <axis xyz="0 0 1" />
-    <limit effort="100" lower="-3.1416" upper="3.1416" velocity="1"/>
+    <limit effort="100" lower="-3.1416" upper="3.1416" velocity="100"/>
   </joint>
   
-  <!-- <joint name="right_pin" type="continuous">
+  <joint name="right_pin" type="continuous">
     <parent link="tie_rod" />
     <child link="right_tie_rod_arm" />
     <origin xyz="0 -0.817005012 0" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.1416" upper="3.1416" />
-  </joint> -->
+    <limit effort="100" lower="-3.1416" upper="3.1416" velocity="100" />
+  </joint>
   
   <!-- <loop_joint name="pin" type="continuous">
     <axis xyz="0 0 1"/>
