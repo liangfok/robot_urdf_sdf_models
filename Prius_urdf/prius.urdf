@@ -9,11 +9,6 @@
 <robot name="car">
   
   <link name="front_axle">
-    <inertial>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <mass value="5.42793634" />
-      <inertia ixx="0.50037476" ixy="0" ixz="0" iyy="0.00216238" iyz="0" izz="0.50167219" />
-    </inertial>
     <visual>
       <origin xyz="0 0 0.3302" rpy="0 0 0" />
       <geometry>
@@ -23,16 +18,10 @@
         <color rgba="0 0 1 1" />
       </material>
     </visual>
-    <collision>
-      <origin xyz="0 0 0.3302" rpy="0 0 0" />
-      <geometry name="front_axle_geom">
-        <box size="0.061842105 1.051315789 0.030921" />
-      </geometry>
-    </collision>
   </link>
 
   <!-- Used by Liang for debugging purposes -->
-  <!-- <link name="simple_cylinder_link">
+<!--   <link name="simple_cylinder_link">
     <inertial>
       <mass value="2.0"/>
       <origin xyz="-0.0 0 0.15"/>
@@ -105,21 +94,21 @@
     </visual>  
   </link> -->
   
-  <!-- <link name="tie_rod">
+  <link name="tie_rod">
     <inertial>
       <mass value="4.53748175" />
-      <inertia iyy="0.00180764" ixx="0.29241361" izz="0.29349820" />
+      <inertia iyy="0.00180764" ixx="0.29241361" izz="0.29349820" ixy="0" ixz="0" iyz="0"/>
     </inertial>
     <visual>
       <origin xyz="0 -0.408502555 0.3302" rpy="0 0 0" />
       <geometry>
         <box size="0.061842105 0.878847118 0.030921" />
       </geometry>
-      <material name="">
+      <material name="blue">
         <color rgba="0 0 1 1" />
       </material>
     </visual>
-  </link> -->
+  </link>
   
   <!-- Hubs -->
   <!-- <link name="left_hub">
@@ -428,14 +417,12 @@
       </material>
       <origin xyz="-3.6725 -.9213945 .1666" rpy="0 0 0" />
       <geometry>
-        <!-- <mesh filename="model://Prius_urdf/prius.dae" scale="1 1 1" /> -->
         <mesh filename="prius.dae" scale="1 1 1" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="-3.6725 -.9213945 .1666" rpy="0 0 0" />
       <geometry name="body_collision_geom">
-        <!-- <mesh filename="model://Prius_urdf/prius.dae" scale="1 1 1" /> -->
         <mesh filename="prius.dae" scale="1 1 1" />
       </geometry>
     </collision>
@@ -467,13 +454,13 @@
     <limit effort="100" lower="-0.401425728" upper="0.5" velocity="1"/>
   </joint>
   
-  <!-- <joint name="left_pin" type="continuous">
+  <joint name="left_pin" type="continuous">
     <parent link="left_tie_rod_arm" />
     <child link="tie_rod" />
     <origin xyz="-0.172468672 -0.086234287 0" />
     <axis xyz="0 0 1" />
-    <limit lower="-3.1416" upper="3.1416" />
-  </joint> -->
+    <limit effort="100" lower="-3.1416" upper="3.1416" velocity="1"/>
+  </joint>
   
   <!-- <joint name="right_pin" type="continuous">
     <parent link="tie_rod" />
