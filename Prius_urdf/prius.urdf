@@ -470,11 +470,11 @@
     <limit effort="100" lower="-3.1416" upper="3.1416" velocity="100" />
   </joint>
   
-  <!-- <loop_joint name="pin" type="continuous">
+  <loop_joint name="pin" type="continuous">
     <axis xyz="0 0 1"/>
     <link1 link="right_tie_rod_arm" rpy="0 0 0" xyz="0.172468672 -0.086234287 0"/>
     <link2 link="front_axle" rpy="0 0 0" xyz="0 -0.494736842 0"/>
-  </loop_joint> -->
+  </loop_joint>
   
   <!-- <joint name="left_hub" type="fixed">
     <parent link="left_tie_rod_arm" />
